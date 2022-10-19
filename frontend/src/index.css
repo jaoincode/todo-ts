@@ -57,11 +57,19 @@ body {
   border: none;
 }
 
-.input img {
+.input button {
+  height: 28px;
   right: 10px;
   top: 12px;
   width: 28px;
   position: absolute;
+  background: transparent;
+  cursor: pointer;
+}
+
+.input img {
+  width: 100%;
+  height: 100%;
 }
 
 .todos {
