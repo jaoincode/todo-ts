@@ -1,18 +1,13 @@
 import moment from "moment";
 import X from "../assets/x.png";
 import { completeTodo } from "../services/todos";
+import { TodoProps } from "../types/Todo";
 
-type Props = {
-  todoText: string;
-  id: string;
-  createdAt: Date;
-};
-
-function Todo({ todoText, id, createdAt }: Props) {
+function Todo({ todo, _id, createdAt }: TodoProps) {
   const handleComplete = async () => {
     const confirmComplete = confirm("Are you sure you want to complete?");
     if (confirmComplete) {
-      await completeTodo(id);
+      await completeTodo(_id);
       window.location.reload();
     }
   };
@@ -25,7 +20,7 @@ function Todo({ todoText, id, createdAt }: Props) {
   return (
     <div className="todo">
       <div>
-        <p>{todoText}</p>
+        <p>{todo}</p>
         <span>{formateDate(createdAt)}</span>
       </div>
       <button onClick={handleComplete}>
