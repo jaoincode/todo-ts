@@ -54,17 +54,15 @@ body {
 }
 
 .input button {
-  border: none;
-}
-
-.input button {
   height: 28px;
   right: 10px;
   top: 12px;
   width: 28px;
   position: absolute;
+  z-index: 10000;
   background: transparent;
   cursor: pointer;
+  border: none;
 }
 
 .input img {
@@ -103,11 +101,12 @@ body {
   justify-content: space-between;
   padding: 0 23px;
   margin-bottom: 14px;
+  text-overflow: ellipsis;
 }
 
 .todo p {
   font-weight: 400;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .todo span {

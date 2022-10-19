@@ -30,6 +30,7 @@ function Input({ placeholder, id }: Props) {
           placeholder={placeholder}
           id={id}
           onChange={changeInput}
+          maxLength={35}
         ></input>
         <button type="submit">
           <img src={Right} alt="Send button" />
