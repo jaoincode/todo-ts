@@ -1,21 +1,41 @@
-import React from "react";
+import React, { FormEvent, useState } from "react";
+import { createTodo } from "../services/todos";
+import Right from "../assets/right.png";
 
 type Props = {
-  value: string;
   placeholder: string;
   id: string;
 };
 
-function Input({ value, placeholder, id }: Props) {
+function Input({ placeholder, id }: Props) {
+  const [value, setValue] = useState<string>("");
+
+  const changeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  const submitTodo = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!value) return alert("You have to send a todo");
+    await createTodo(value);
+    window.location.reload();
+  };
+
   return (
-    <div className="input">
-      <input
-        type="text"
-        value={value}
-        placeholder={placeholder}
-        id={id}
-      ></input>
-    </div>
+    <form onSubmit={submitTodo}>
+      <div className="input">
+        <input
+          type="text"
+          value={value}
+          placeholder={placeholder}
+          id={id}
+          onChange={changeInput}
+        ></input>
+        <button type="submit">
+          <img src={Right} alt="Send button" />
+        </button>
+      </div>
+    </form>
   );
 }
 

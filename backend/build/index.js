@@ -11,6 +11,7 @@ const cors_1 = __importDefault(require("cors"));
 const todos_1 = __importDefault(require("./app/routes/todos"));
 const port = process.env.PORT || 3000;
 app.use((0, cors_1.default)());
+app.use(express_1.default.json());
 app.use("/todos", todos_1.default);
 app.listen(port, () => {
     console.log("the app is listening on", port);

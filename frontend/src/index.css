@@ -17,10 +17,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  position: relative;
 }
 
 .container {
-  width: 375px;
+  width: 405px;
   height: 667px;
   box-shadow: 0px 10px 30px 5px rgba(0, 0, 0, 0.1);
   background: #222;
@@ -29,6 +31,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.input {
+  margin-bottom: 30px;
+  position: relative;
 }
 
 .input input {
@@ -46,10 +53,35 @@ body {
   margin-bottom: 16px;
 }
 
+.input button {
+  border: none;
+}
+
+.input img {
+  right: 10px;
+  top: 12px;
+  width: 28px;
+  position: absolute;
+}
+
 .todos {
-  margin-top: 10px;
+  margin-top: 30px;
   max-height: 400px;
   overflow: auto;
+  position: relative;
+}
+
+.shadow {
+  z-index: 100;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(
+    0deg,
+    rgba(34, 34, 34, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .todo {
@@ -65,9 +97,55 @@ body {
   margin-bottom: 14px;
 }
 
-.todo span {
+.todo p {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 17px;
+}
+
+.todo span {
+  font-size: 13px;
+}
+
+.todo button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.todo img {
+  width: 28px;
+}
+
+footer {
+  margin-top: 5px;
+  height: 33px;
+  width: 100%;
+  background: #ff5b65;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+
+footer span {
+  font-weight: 400;
+  font-size: 13px;
+  color: #222;
+}
+
+footer a {
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+}
+
+.nothing {
+  font-size: 23px;
+  color: #fff;
 }
 
 @media only screen and (max-width: 440px) {
@@ -75,6 +153,10 @@ body {
     width: 100vw;
     height: 100vh;
     border-radius: 0;
+  }
+
+  footer {
+    margin-top: 0;
   }
 }
 
